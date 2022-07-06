@@ -7,51 +7,63 @@ function sumar()
 {	
 	let numeroUno;
 	let numeroDos;
-	
+	let resultado;
 
 	numeroUno=document.getElementById("txtIdNumeroUno").value;
 	numeroUno=parseInt(numeroUno);
 	numeroDos=document.getElementById("txtIdNumeroDos").value;
 	numeroDos=parseInt(numeroDos);
 
+	resultado=numeroUno+numeroDos;
 	
-	alert(numeroUno+numeroDos);	
+	alert("la suma es " + resultado);	
 }
 
 function restar()
 {
 	let numeroUno;
 	let numeroDos;
-	
+	let resultado; 
+
 	numeroUno=document.getElementById("txtIdNumeroUno").value;
 	numeroUno=parseInt(numeroUno);
 	numeroDos=document.getElementById("txtIdNumeroDos").value;
 	numeroDos=parseInt(numeroDos);	
 
-	alert(numeroUno-numeroDos);
+	resultado=numeroUno-numeroDos;
+
+	alert("la resta es "+ resultado);
 }
 
 function multiplicar()
 { 
 	let numeroUno;
 	let numeroDos;
+	let resultado;
+
 	numeroUno=document.getElementById("txtIdNumeroUno").value;
 	numeroUno=parseInt(numeroUno);
 	numeroDos=document.getElementById("txtIdNumeroDos").value;
 	numeroDos=parseInt(numeroDos);	
 
-	alert(numeroUno*numeroDos);	
+	resultado=numeroUno*numeroDos;
+
+	alert("la multiplicación es "+resultado);	
 }
 
 function dividir()
 {
 	let numeroUno;
 	let numeroDos;
+	let resultado;
+
 	numeroUno=document.getElementById("txtIdNumeroUno").value;
 	numeroUno=parseInt(numeroUno);
 	numeroDos=document.getElementById("txtIdNumeroDos").value;
 	numeroDos=parseInt(numeroDos);	
 
-	alert(numeroUno/numeroDos);	
+	resultado=numeroUno/numeroDos;
+
+	alert("la división es "+resultado);	
 }
 
