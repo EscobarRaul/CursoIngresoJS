@@ -11,13 +11,13 @@ function Sumar ()
     let resultado;
 
     precio1=document.getElementById("txtIdPrecioUno").value;
-    precio1=parseInt(precio1);
+    precio1=parseFloat(precio1);
     
     precio2=document.getElementById("txtIdPrecioDos").value;
-    precio2=parseInt(precio2);
+    precio2=parseFloat(precio2);
     
     precio3=document.getElementById("txtIdPrecioTres").value;
-    precio3=parseInt(precio3);
+    precio3=parseFloat(precio3);
 
     resultado=precio1+precio2+precio3;
 
@@ -32,17 +32,19 @@ function Promedio ()
     let resultado;
 
     precio1=document.getElementById("txtIdPrecioUno").value;
-    precio1=parseInt(precio1);
+    precio1=parseFloat(precio1);
     
     precio2=document.getElementById("txtIdPrecioDos").value;
-    precio2=parseInt(precio2);
+    precio2=parseFloat(precio2);
     
     precio3=document.getElementById("txtIdPrecioTres").value;
-    precio3=parseInt(precio3);
+    precio3=parseFloat(precio3);
 
+    resultado= Math.floor(2);
     resultado=((precio1+precio2+precio3)/3);
 
-    alert("El promedio es " + resultado);
+    
+    alert("El promedio es " + resultado.toFixed(1)); //.toFixed acorta numeros con coma.
 
 }
 function PrecioFinal () 
@@ -55,18 +57,17 @@ function PrecioFinal ()
     let precioFinal;
 
     precio1=document.getElementById("txtIdPrecioUno").value;
-    precio1=parseInt(precio1);
+    precio1=parseFloat(precio1);
     
     precio2=document.getElementById("txtIdPrecioDos").value;
-    precio2=parseInt(precio2);
+    precio2=parseFloat(precio2);
     
     precio3=document.getElementById("txtIdPrecioTres").value;
-    precio3=parseInt(precio3);
+    precio3=parseFloat(precio3);
 
     resultado=precio1+precio2+precio3;
     aumento21=resultado * 21/100;
     precioFinal= resultado + aumento21;
     
-
-    alert("El precio final es " + precioFinal);
+    alert("El precio final es " + precioFinal.toFixed(1));
 }
