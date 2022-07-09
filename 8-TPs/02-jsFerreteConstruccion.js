@@ -8,7 +8,8 @@ function Rectangulo ()
 {
     let largo;
     let ancho;
-    let radio;
+    let perimetro;
+    let alambre;
 
     largo = document.getElementById("txtIdLargo").value;
     largo = parseInt(largo);
@@ -16,17 +17,51 @@ function Rectangulo ()
     ancho = document.getElementById("txtIdAncho").value;
     ancho = parseInt(ancho);
 
-    radio = document.getElementById("txtIdRadio").value;
-    radio = parseInt(radio);
+    perimetro = (largo + ancho)*2;
 
+    alambre= perimetro * 3;
+
+    alert("Se necesitan comprar " + alambre + " metros de alambre");
     
 
 }
 function Circulo () 
 {
-	
+	let perimetro;
+    let radio;
+    let alambre;
+    let pi=3.14;    
+
+    radio=document.getElementById("txtIdRadio").value;
+    radio=parseInt(radio);
+
+    perimetro = 2 * pi * radio;
+
+    alambre = perimetro * 3 ;
+
+    alert("Se necesitan comprar " + alambre + " metros de alambre");
+
+
+
 }
 function Materiales () 
 {
-	
+    let largo;
+    let ancho;
+    let area;
+    let cemento;
+    let cal;
+
+    largo = document.getElementById("txtIdLargo").value;
+    largo = parseInt(largo);
+
+    ancho = document.getElementById("txtIdAncho").value;
+    ancho = parseInt(ancho);
+
+    area = largo * ancho;
+
+    cemento = area * 2;
+    cal = area * 3;
+
+    alert("Para un contrapiso de "+ area + " m2, necesito comprar "+ cemento + " bolsas de cemento y "+ cal + " bolsas de cal." )
 }

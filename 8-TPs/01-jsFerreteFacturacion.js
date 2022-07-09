@@ -5,43 +5,43 @@ C.	ingresar tres precios de productos  y mostrar precio final (más IVA 21%).
 */
 function Sumar () 
 {
-    let precio1;
-    let precio2;
-    let precio3;
+    let precioUno;
+    let precioDos;
+    let precioTres;
     let resultado;
 
-    precio1=document.getElementById("txtIdPrecioUno").value;
-    precio1=parseFloat(precio1);
+    precioUno=document.getElementById("txtIdPrecioUno").value;
+    precioUno=parseFloat(precioUno);
     
-    precio2=document.getElementById("txtIdPrecioDos").value;
-    precio2=parseFloat(precio2);
+    precioDos=document.getElementById("txtIdPrecioDos").value;
+    precioDos=parseFloat(precioDos);
     
-    precio3=document.getElementById("txtIdPrecioTres").value;
-    precio3=parseFloat(precio3);
+    precioTres=document.getElementById("txtIdPrecioTres").value;
+    precioTres=parseFloat(precioTres);
 
-    resultado=precio1+precio2+precio3;
+    resultado=precioUno+precioDos+precioTres;
 
     alert("La suma de los precios es "+ resultado);
 
 }
 function Promedio () 
 {
-    let precio1;
-    let precio2;
-    let precio3;
+    let precioUno;
+    let precioDos;
+    let precioTres;
     let resultado;
 
-    precio1=document.getElementById("txtIdPrecioUno").value;
-    precio1=parseFloat(precio1);
+    precioUno=document.getElementById("txtIdPrecioUno").value;
+    precioUno=parseFloat(precioUno);
     
-    precio2=document.getElementById("txtIdPrecioDos").value;
-    precio2=parseFloat(precio2);
+    precioDos=document.getElementById("txtIdPrecioDos").value;
+    precioDos=parseFloat(precioDos);
     
-    precio3=document.getElementById("txtIdPrecioTres").value;
-    precio3=parseFloat(precio3);
+    precioTres=document.getElementById("txtIdPrecioTres").value;
+    precioTres=parseFloat(precioTres);
 
     resultado= Math.floor(2);
-    resultado=((precio1+precio2+precio3)/3);
+    resultado=((precioUno+precioDos+precioTres)/3);
 
     
     alert("El promedio es " + resultado.toFixed(1)); //.toFixed acorta numeros con coma.
@@ -49,25 +49,25 @@ function Promedio ()
 }
 function PrecioFinal () 
 {
-    let precio1;
-    let precio2;
-    let precio3;
+    let precioUno;
+    let precioDos;
+    let precioTres;
     let resultado;
-    let aumento21;
+    let iva;
     let precioFinal;
 
-    precio1=document.getElementById("txtIdPrecioUno").value;
-    precio1=parseFloat(precio1);
+    precioUno=document.getElementById("txtIdPrecioUno").value;
+    precioUno=parseFloat(precioUno);
     
-    precio2=document.getElementById("txtIdPrecioDos").value;
-    precio2=parseFloat(precio2);
+    precioDos=document.getElementById("txtIdPrecioDos").value;
+    precioDos=parseFloat(precioDos);
     
-    precio3=document.getElementById("txtIdPrecioTres").value;
-    precio3=parseFloat(precio3);
+    precioTres=document.getElementById("txtIdPrecioTres").value;
+    precioTres=parseFloat(precioTres);
 
-    resultado=precio1+precio2+precio3;
-    aumento21=resultado * 21/100;
-    precioFinal= resultado + aumento21;
+    resultado=precioUno+precioDos+precioTres;
+    iva=resultado * 21/100;
+    precioFinal= resultado + iva;
     
     alert("El precio final es " + precioFinal.toFixed(1));
 }
