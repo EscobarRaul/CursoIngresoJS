@@ -8,7 +8,105 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
+function CalcularPrecio() 
 {
- 	
+    let cantidadLamparas;
+    let precioLamparas;
+    let descuento;
+    let marca;
+    let precioDescuento;
+    let ingresoBruto;
+    let mensaje;
+    
+    
+    // precioLamparas = 35 ;
+    cantidadLamparas = document.getElementById("txtIdCantidad").value;
+    cantidadLamparas = parseInt(cantidadLamparas);
+    marca = document.getElementById("Marca").value;
+    
+    precioLamparas = cantidadLamparas * 35; // precioLamparas = cantidadLamparas * precioLamparas;
+    // let descuento= 1 ;
+
+    if (cantidadLamparas >= 6) // A)
+    {
+        descuento = precioLamparas * 50 / 100;
+        precioDescuento = precioLamparas - descuento;
+        // descuento= 0.50
+        
+    } else
+    {
+        if (cantidadLamparas == 5) // B)
+        {
+            if (marca == "ArgentinaLuz")
+            {
+                descuento = precioLamparas * 40 / 100;
+                precioDescuento = precioLamparas - descuento; 
+                  
+            }else
+            {
+                descuento = precioLamparas * 30 / 100;
+                precioDescuento = precioLamparas - descuento;
+
+            }
+
+        }
+        else
+        {
+            if(cantidadLamparas == 4) // C)
+            {
+                if(marca == "ArgentinaLuz" || marca == "FelipeLamparas")
+                {
+                    descuento = precioLamparas * 25 / 100;
+                    precioDescuento = precioLamparas - descuento; 
+                }
+                else
+                {
+                    descuento = precioLamparas * 20 / 100;
+                    precioDescuento = precioLamparas - descuento;   
+                }
+            }
+            else
+            {
+                if(cantidadLamparas == 3 ) // D)
+                {
+                    if(marca == "ArgentinaLuz")
+                    {
+                        descuento = precioLamparas * 15 / 100;
+                        precioDescuento = precioLamparas - descuento;    
+                    }
+                    else 
+                    {
+                        if(marca == "FelipeLamparas")
+                        {
+                            descuento = precioLamparas * 10 / 100;
+                            precioDescuento = precioLamparas - descuento;
+                        }
+                        else
+                        {   
+                            descuento = precioLamparas * 5 / 100;
+                            precioDescuento = precioLamparas - descuento;
+
+                        }
+                    }
+                }
+            }
+        }
+        
+    } 
+
+    //  precioDescuento=precioLampara * descuento;
+    
+    document.getElementById("txtIdprecioDescuento").value = precioDescuento;
+    
+    if(precioDescuento >= 120) //E)
+    {
+        ingresoBruto=precioLamparas * 0.10; //la otra forma es calcularlo sobre el precioDescuento.
+        precioDescuento= precioDescuento+ ingresoBruto;
+
+       mensaje=("Usted pago $" + precioDescuento + " donde: $" + ingresoBruto + " de ingresos brutos");
+
+       alert(mensaje);
+    }
+    
+    
 }
