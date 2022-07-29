@@ -11,81 +11,104 @@ b) el importe total a pagar con descuento(solo si corresponde)
 d) Informar el tipo de alimento más caro.
 f) El promedio de precio por kilo en total.*/
 
-function mostrar()
-{
+function mostrar() {
   let peso;
   let precioPorKilo;
   let tipoProducto;
-  let respuesta=true;
+  let respuesta = true;
 
   let descuento;
   let precioDescuento;
   let precioBruto;
-  let acumuladorKilos=0;
-  let acumuladorPrecio=0;
+  let acumuladorKilos = 0;
+  let contadorPrecio = 0;
+  let acumuladorPrecio = 0;
   let promedio;
+  let tipoMasCaro;
+  let acumuladorVegetal = 0;
+  let acumuladorPrecioVegetal = 0;
+  let acumuladorPrecioAnimal = 0;
+  let acumuladorAnimal = 0;
+  let acumuladorPrecioMezcla = 0;
+  let acumuladorMezcla = 0;
 
 
-  while(respuesta==true)
-  {
-    peso= prompt("ingrese el peso (entre 10 y 1000): ");
-    peso= parseInt(peso);
-    while(isNaN(peso)||peso < 10 || peso >1000)
-    {
-      peso=prompt("ERROR!! Reingrese el peso (entre 10 y 1000): ");
-      peso= parseInt(peso);
+
+  while (respuesta == true) {
+    tipoProducto = prompt("Ingrese el producto: ").toLowerCase();
+    while (tipoProducto != "vegetal" && tipoProducto != "animal" && tipoProducto != "mezcla") {
+      tipoProducto = prompt("ERROR!! Reingrese el producto: ").toLowerCase();
     }
 
-    precioPorKilo= prompt("ingrese el precio : ");
-    precioPorKilo= parseInt(precioPorKilo);
-    while(isNaN(precioPorKilo)||precioPorKilo < 0)
-    {
-      precioPorKilo=prompt("ERROR!! Reingrese el precio : ");
-      precioPorKilo= parseInt(precioPorKilo);
+    peso = prompt("ingrese el peso (entre 10 y 1000): ");
+    peso = parseInt(peso);
+    while (isNaN(peso) || peso < 10 || peso > 1000) {
+      peso = prompt("ERROR!! Reingrese el peso (entre 10 y 1000): ");
+      peso = parseInt(peso);
     }
 
-    tipoProducto=prompt("Ingrese el producto: ").toLowerCase();
-    while(tipoProducto !="vegetal" && tipoProducto != "animal" && tipoProducto!="mezcla")
-    {
-      tipoProducto=prompt("ERROR!! Reingrese el producto: ").toLowerCase();
+    precioPorKilo = prompt("ingrese el precio : ");
+    precioPorKilo = parseInt(precioPorKilo);
+    while (isNaN(precioPorKilo) || precioPorKilo < 0) {
+      precioPorKilo = prompt("ERROR!! Reingrese el precio : ");
+      precioPorKilo = parseInt(precioPorKilo);
+    }
+    contadorPrecio++;
+
+
+    if (tipoProducto == "animal") {
+      acumuladorAnimal = acumuladorAnimal + peso;
+      acumuladorPrecioAnimal = acumuladorPrecioAnimal + (precioPorKilo * peso);
+    } else {
+      if (tipoProducto == "vegetal") {
+        acumuladorVegetal = acumuladorVegetal + peso;
+        acumuladorPrecioVegetal = acumuladorPrecioVegetal + (precioPorKilo * peso);
+      } else {
+        acumuladorMezcla = acumuladorMezcla + peso;
+        acumuladorPrecioMezcla = acumuladorPrecioMezcla + (precioPorKilo * peso);
+      }
     }
 
-    
-    precioBruto= precioPorKilo * peso;
-    acumuladorKilos+=peso;
-    acumuladorPrecio+=precioBruto; // A)
+    precioBruto = precioPorKilo * peso;
+    acumuladorKilos += peso;
+    acumuladorPrecio += precioBruto; // A)
 
-    respuesta=confirm("Desea continuar?");
+    respuesta = confirm("Desea continuar?");
 
   } // FIN WHILE
 
 
-  if(acumuladorKilos > 300) // B)
+  if (acumuladorKilos > 300) // B)
   {
-    descuento=acumuladorKilos*25/100;
-    precioDescuento=acumuladorKilos-descuento;
+    descuento = acumuladorKilos * 25 / 100;
+    precioDescuento = acumuladorKilos - descuento;
   }
-  else
-  {
-    if(acumuladorKilos >100 && acumuladorKilos <300)
-    {
-      descuento=acumuladorKilos*15/100;
-      precioDescuento=acumuladorKilos-descuento;
+  else {
+    if (acumuladorKilos > 100 && acumuladorKilos < 300) {
+      descuento = acumuladorKilos * 15 / 100;
+      precioDescuento = acumuladorKilos - descuento;
     }
-    else
-    {
-      precioDescuento=acumuladorKilos;
+    else {
+      precioDescuento = acumuladorKilos;
     }
   }
-  
-  promedio=
-  
-  alert("El descuento es: "+precioDescuento);
-  /*
-  a) El importe total a pagar , bruto sin descuento y...
-  b) el importe total a pagar con descuento(solo si corresponde)
-  d) Informar el tipo de alimento más caro.
-  f) El promedio de precio por kilo en total.*/
+  alert("El descuento es: " + precioDescuento);
+
+  // D)
+  if (acumuladorPrecioVegetal > acumuladorPrecioAnimal && acumuladorPrecioVegetal > acumuladorPrecioMezcla) {
+    tipoMasCaro = "vegetal";
+  } else {
+    if (acumuladorPrecioAnimal > acumuladorPrecioMezcla) {
+      tipoMasCaro = "animal";
+    } else {
+      tipoMasCaro = "mezcla";
+    }
+  }
+  alert("El tipo más caro es " + tipoMasCaro + ".");
+
+  promedio = acumuladorPrecio / contadorPrecio; // F)
+
+  alert("El promedio de precio por kilo en total es: " + promedio);
 
 }
 

@@ -9,8 +9,8 @@ Se debe Informar al usuario lo siguiente:
 a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
 b) Del tipo con mas unidades, el promedio por compra
 c) Cuántas unidades de jabones hay en total
-
 */
+
 function mostrar()
 {
 	let i;
@@ -20,12 +20,25 @@ function mostrar()
 	let marca;
 	let fabricante;
 
+	// variables A)
 	let flagAlcohol=true;
 	let precioAlcoholMasBarato;
 	let fabricanteAlcohol;
 
+	// variables B)
+	let acumuladorBarbijo=0;
+	let contadorBarbijo=0;
+	let acumuladorJabon=0;
+	let contadorJabon=0;
+	let acumuladorAlcohol=0;
+	let contadorAlcohol=0;
+	let promedio;
 
-	for(i=0 ; i<5 ; i++)
+	//variables C)
+	
+
+
+	for(i=0 ; i<3 ; i++)
 	{
 		tipoProducto=prompt("Ingrese el producto: ").toLowerCase();
 		while(tipoProducto !="barbijo" && tipoProducto != "jabon" && tipoProducto!="alcohol")
@@ -53,13 +66,15 @@ function mostrar()
 		fabricante=prompt("Ingrese el fabricante: ");
 
 		//a) Del más barato de los alcoholes, la cantidad de unidades y el fabricante
-		if(flagAlcohol==true)
+		if(flagAlcohol==true || (tipoProducto== "alcohol" && precioAlcoholMasBarato>precio))
 		{
 			precioAlcoholMasBarato=precio;
 			unidadesAlcoholMasBarato=unidades;
 			fabricanteAlcohol=fabricante;
 			flagAlcohol=false;
 		}
+		alert("Del más barato de los alcoholes, tiene "+ unidadesAlcoholMasBarato+ " unidades y el fabricante es "+ fabricanteAlcohol);
+		/*
 		else
 		{
 			if(precioAlcoholMasBarato>precio)	
@@ -68,8 +83,30 @@ function mostrar()
 				unidadesAlcoholMasBarato=unidades;
 				fabricanteAlcohol=fabricante;
 			}
+		}*/
+		
+		//b) Del tipo con mas unidades, el promedio por compra
+		if(tipoProducto == "barbijo") 
+		{
+			acumuladorBarbijo = acumuladorBarbijo + unidades;
+			contadorBarbijo ++;
+			promedio=acumuladorBarbijo/contadorBarbijo;
+		} else
+		{
+			if (tipoProducto == "jabon") 
+			{
+				acumuladorJabon = acumuladorJabon + unidades;
+				contadorJabon ++;
+				promedio=acumuladorJabon/contadorJabon;
+			} else 
+			{
+				acumuladorAlcohol = acumuladorAlcohol + unidades;
+				contadorAlcohol ++ ;
+				promedio=acumuladorAlcohol/contadorAlcohol;
+			}
 		}
-
-		alert("Del más barato de los alcoholes es "+precioAlcoholMasBarato+ " la cantidad de unidades "+unidadesAlcoholMasBarato+ " y el fabricante "+ fabricanteAlcohol);
-	}
+		alert("Del tipo con mas unidades, el promedio por compra es: "+ promedio);
+		
+		
+	} 
 }
